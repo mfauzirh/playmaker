@@ -25,8 +25,18 @@ public class UserRepository : IUserRepository
         return await _context.Users.AnyAsync(u => u.Id == userId);
     }
 
+    public async Task<bool> ExistAsync(string email)
+    {
+        return await _context.Users.AnyAsync(u => u.Email == email);
+    }
+
     public async Task<User?> GetAsync(int userId)
     {
         return await _context.Users.FindAsync(userId);
+    }
+
+    public async Task<User?> GetAsync(string email)
+    {
+        return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
     }
 }

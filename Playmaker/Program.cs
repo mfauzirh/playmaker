@@ -1,6 +1,7 @@
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Playmaker.Data;
+using Playmaker.Middleware;
 using Playmaker.Repositories;
 using Playmaker.Services;
 
@@ -37,6 +38,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ErrorHandlerMiddlware>();
 
 app.MapControllers();
 
