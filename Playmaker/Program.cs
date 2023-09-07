@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Playmaker.Data;
 using Playmaker.Dtos;
+using Playmaker.Extensions;
 using Playmaker.Middleware;
 using Playmaker.Repositories;
 using Playmaker.Services;
@@ -75,10 +76,11 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+// Add repository layer
+builder.Services.AddRepositoryServices();
 
-builder.Services.AddScoped<IAuthServices, AuthService>();
-builder.Services.AddScoped<IUserService, UserService>();
+// Add service layer
+builder.Services.AddServiceServices();
 
 var app = builder.Build();
 
