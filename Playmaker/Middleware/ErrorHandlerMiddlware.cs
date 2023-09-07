@@ -29,7 +29,7 @@ public class ErrorHandlerMiddlware
         catch (Exception ex)
         {
             _logger.LogError(ex, "An unhandled execption occurred");
-            await SendErrorResponse(context, "application/json", HttpStatusCode.InternalServerError, "Server error occurred");
+            await SendErrorResponse(context, "application/json", HttpStatusCode.InternalServerError, "Server error occurred.");
         }
     }
 
