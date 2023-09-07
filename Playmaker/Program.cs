@@ -9,8 +9,6 @@ using Playmaker.Data;
 using Playmaker.Dtos;
 using Playmaker.Extensions;
 using Playmaker.Middleware;
-using Playmaker.Repositories;
-using Playmaker.Services;
 using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);

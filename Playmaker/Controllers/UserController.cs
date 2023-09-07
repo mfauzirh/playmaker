@@ -27,4 +27,26 @@ public class UserController : ControllerBase
 
         return Ok(response);
     }
+
+    [HttpPatch("{userId}")]
+    public async Task<ActionResult<Response<UserResponse>>> Update(int userId, UserUpdateRequest request)
+    {
+        var response = new Response<UserResponse>()
+        {
+            Data = await _userService.UpdateAsync(userId, request)
+        };
+
+        return Ok(response);
+    }
+
+    [HttpDelete("{userId}")]
+    public async Task<ActionResult<Response<UserResponse>>> Update(int userId)
+    {
+        var response = new Response<UserResponse>()
+        {
+            Data = await _userService.DeleteAsync(userId)
+        };
+
+        return Ok(response);
+    }
 }
