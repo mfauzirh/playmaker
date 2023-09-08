@@ -10,5 +10,7 @@ public class AutoMapperProfile : Profile
     {
         CreateMap<User, UserResponse>().ReverseMap();
         CreateMap<User, RegisterRequest>().ReverseMap();
+        CreateMap<Venue, VenueResponse>().ReverseMap();
+        CreateMap<Venue, VenueCreateRequest>().ReverseMap();
     }
 }
